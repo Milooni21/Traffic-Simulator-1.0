@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Get info needed to start sim:
+
         Scanner simController = new Scanner(System.in);
 //        System.out.println("How many roads?");
 //        main.setRoadSpawns(simController.nextInt());
@@ -15,23 +15,21 @@ public class Main {
 //        System.out.println("How many traffic lights?");
 //        main.setLightSpawns(simController.nextInt());
 
-        // set values for user inputs for prototype.
         int roadSpawns = 2;
         int carSpawns = 1;
         int lightSpawns = 1;
 
 
-        //Create objects:
         System.out.println("Object Creation:\n---------------------");
         System.out.println("Roads:");
         ArrayList<Road> roads = new ArrayList<>();
         for (int i = 0; i < roadSpawns; i++) {
             System.out.println("Please input parameters for road_" + i + "...");
-            System.out.print("Length:");
+            System.out.print("Enter the Length: ");
             int lengthInput = simController.nextInt();
-//            System.out.print("Speed limit:");
-//            int speedLimitInput = simController.nextInt();
-            int speedLimitInput = 1; // force speed limit to be 1 for prototype.
+            System.out.print("Please enter the Speed limit: ");
+            int speedLimitInput = simController.nextInt();
+//            int speedLimitInput = 1; // force speed limit to be 1 for prototype.
             roads.add(new Road(Integer.toString(i), speedLimitInput, lengthInput, new int[]{0, 0}));
         }
         System.out.println("\nRoads;");
@@ -56,7 +54,7 @@ public class Main {
         System.out.println();
 
 
-        // set locations and connections:
+        // Locations and connections:
         System.out.println("Settings:");
         roads.get(1).setStartLocation(new int[]{roads.get(0).getLength() + 1, 0}); // place road_1 to a position at the end of road_0.
         roads.get(1).printRoadInfo();
@@ -68,7 +66,7 @@ public class Main {
         System.out.println("Simulation:");
         Random random = new Random();
         int time = 0;
-        System.out.print("Set time scale in milliseconds:");
+        System.out.print("Set time scale in milliseconds: ");
         int speedOfSim = simController.nextInt();
         int carsFinished = 0;
         while (carsFinished < cars.size()) {
