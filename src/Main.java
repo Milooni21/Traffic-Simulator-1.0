@@ -8,12 +8,6 @@ public class Main {
 
 
         Scanner simController = new Scanner(System.in);
-//        System.out.println("How many roads?");
-//        main.setRoadSpawns(simController.nextInt());
-//        System.out.println("How many cars?");
-//        main.setCarSpawns(simController.nextInt());
-//        System.out.println("How many traffic lights?");
-//        main.setLightSpawns(simController.nextInt());
 
         int roadSpawns = 2;
         int carSpawns = 1;
@@ -29,7 +23,7 @@ public class Main {
             int lengthInput = simController.nextInt();
             System.out.print("Please enter the Speed limit: ");
             int speedLimitInput = simController.nextInt();
-//            int speedLimitInput = 1; // force speed limit to be 1 for prototype.
+//            int speedLimitInput = 1;
             roads.add(new Road(Integer.toString(i), speedLimitInput, lengthInput, new int[]{0, 0}));
         }
         System.out.println("\nRoads;");
